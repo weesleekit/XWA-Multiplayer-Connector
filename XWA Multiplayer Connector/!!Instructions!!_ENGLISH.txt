@@ -1,0 +1,58 @@
+Instructions
+		Well, this isn't really complicated, but here's the step by step thing you have to do to play the solo campaign of X-Wing Alliance in Multiplayer.
+
+		All of the missions are put in a folder. In each folder you should find 2 files :
+
+			- B*M*(*P).skm, the * are the battle number, the mission number, and the number of player slots avalaible in the mission.
+		So let's say you are four friends who wanna play a mission, you will have to make sure your mission has at least the designation (4P) or more.
+		The .skm file is just there to tell the mission where which player is and to activate an hidden XWA config that allow Hyperspace travel in multiplayer.
+
+			- temp.tie, is actually the mission itself, EVERY player will have to replace the temp.tie file adrealy in their Skirmish folder by this one at a determined moment (I will explain below).
+
+			1. First, find a friend (or more ;)) to play with and decide who's gonna host.
+			2. The Host will have to copy the B*M*(*P).skm file of the mission you want to play in his Skirmish folder of XWA. (C:\Program Files\LucasArts\XWingAlliance\SKIRMISH)
+			You can as well copy all of them in your XWA Skirmish folder so you won't have to do it for future uses.	
+			3. It is recommended now that you open 2 windows, one for your XWA Skirmish folder and one for the folder of the Multiplayer XWA Solo Campaign.
+			4. Open XWA and Host (Or Join) the multiplayer game.
+			5. The host will then load the B*M*(*P).skm and put every player on the fighter he wants.
+			6. Launch the mission.</ul>
+
+
+		Okay, here starts the special part.
+		You will be in a very empty mission with only you, your friends and two hyperspace buoys.  That's the basic skirmish that allows hyperspace travel.
+		If you see the 2 hyperspace buoys, that means that it's all good for now.
+		But if you see a Rendez-Vous Buoy, that means the XWA config that allows Hyperspace in multiplayer is not activated.  You have to leave the mission and reload the B*M*(*P).skm from the main skirmish screen.
+
+			7. If you see the 2 hyperspace buoys, everybody must leave the mission, BUT, stay in the Score Screen, don't go back further.
+			8. From the score screen, everybody must Alt-Tab to desktop (Minimize XWA).
+			9. Copy the temp.tie from the folder of the mission you are playing to the SKIRMISH folder of XWA (C:\Program Files\LucasArts\XWingAlliance\SKIRMISH)
+			!Important! You cannot stay on the desktop for more than 30 seconds while in a multiplayer game or you get disconnected, so that's why I recommended to open the folder you need before starting XWA at the beginning, this will faster the operation.
+			If someone get disconnected because he stayed too long on the desktop, you have to start over, and reload the B*M*(*P).skm (or the hyperspace config of XWA won't be activated).
+			10. When you copy windows will ask for replace, you click "yes" (of course :P)
+			11. Go back to X-Wing Alliance
+			12. The Host have to make sure everybody is back in-game and have copied the temp.tie.
+			13. When everybody is ready, the host must click on the relaunch button in the bottom-right corner. (Don't go back to the main SKIRMISH screen, just click on the relaunch button from the score screen, this is really important).
+			14. Enjoy the mission!
+
+		If there is a bug at the start of the mission (blue boxes), this can mean that someone copied the wrong temp.tie file (or didnt do it at all).
+		If you get a white screen after the jump in Hyperspace, that means you didnt loaded the B*M*(*P).skm correctly.
+
+		Most of the modifications that I made to the original missions of XWA are that I removed the fourth region on those that had 4 zones, (Because the 4th is not accessible with our multiregion skirmish models).
+		I also reworked fighter emplacements to make sure everybody could have a fighter ;)
+
+		You will notice that 2 missions are not available.
+
+			- The first one is B0M2, (Prologue 2).  This is because this mission is the one when you train in the gunner turret.  The multigunner patch (which allows you to play with a friend in a TCOR, one gunner, one pilot.) would have been useful there but when we pass in hyperspace with it, it make the 2 guys in the TCOR bug.
+		This mission wouldn't have worth the time to modify it so I didnt touch it.
+			- The second one is maybe the funniest of the game, the one in the Death Star (B7M4)...  The problem with this one is that at the start you're propulsed into the Death Star, and in multiplayer you just can't move after that scene.  I tried a lot of things to make it work but never managed to do it, but if you wanna try it, the mission is 1B7M4W.TIE (C:\Program Files\LucasArts\XWingAlliance\MISSIONS)
+
+		The folder Appendix leads to MR_2P_StarchaserDuel. It contains a mission that I found on the New Jedi Order Project website (http://www.njoproject.com/ns/index.shtml)
+		This mission was made by Draconious and it's the .skm that allowed me to convert the XWA solo campaign to multiplayer.
+		I still don't know how he made that .skm, but if someone knows, I would be happy to know it :)
+		It also contains some text files that help understand how multiregion and allied mission can work in multiplayer. I encourage you to read those.
+
+		If you have any questions or problems to make those missions work, (michaelangeloman@hotmail.com) contact me.
+
+P.S.: A friend of mine is making totaly new mission with Allied that use multiple zones.  It's is a campaign for a squadron he made.  We play monthly missions.
+It's only in french, but you might want to try thoses missions too ;)  His website : http://amiralaria.free.fr/
+To download the missions you have to click on the screenshot next to them, here : http://amiralaria.free.fr/missions.php
