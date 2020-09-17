@@ -8,13 +8,13 @@ namespace XWA_Multiplayer_Connector.Classes.Missions
         public static Dictionary<Battle, string[]> battleIDtoMissionName = new Dictionary<Battle, string[]>()
         {
             { Battle.Family_Business, new string[] { 
-                                "Aeron's lesson: Transport operation",
-                                "Emon's lesson: Weapons",
-                                "Aeron's error: Data recovery",
-                                "Sticking it to the Viraxos: Covert delivery",
-                                "Black market Bacta: Cargo transfer",
-                                "Rebel rendezvous: Aid to the Alliance",
-                                "Nowhere to go?: Escape Imperial attack"
+                                "Aeron's lesson Transport operation",
+                                "Emon's lesson Weapons",
+                                "Aeron's error Data recovery",
+                                "Sticking it to the Viraxos Covert delivery",
+                                "Black market Bacta Cargo transfer",
+                                "Rebel rendezvous Aid to the Alliance",
+                                "Nowhere to go? Escape Imperial attack"
             } },
             { Battle.Clearing_the_Way, new string[] {
                                 "Convoy Attack",
@@ -45,7 +45,7 @@ namespace XWA_Multiplayer_Connector.Classes.Missions
             { Battle.The_Bothan_Connection, new string[] {
                                 "Shipment to Mining Colony (Family mission)",
                                 "Reconnaissance of Imperial Convoy",
-                                "Mining Colony Under Siege: Rescue Aeron (Family mission)",
+                                "Mining Colony Under Siege Rescue Aeron (Family mission)",
                                 "Capture the Freighter Suprosa",
                                 "Abandon Rebel Base at Kothlis",
                                 "Protect Imperial Computer",

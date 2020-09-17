@@ -34,7 +34,6 @@
             this.listBoxMissionSelection = new System.Windows.Forms.ListBox();
             this.splitContainerTopRight = new System.Windows.Forms.SplitContainer();
             this.buttonSendTempTie = new System.Windows.Forms.Button();
-            this.buttonPrepHostFile = new System.Windows.Forms.Button();
             this.textBoxMissionInfo = new System.Windows.Forms.TextBox();
             this.colourableListBoxClients = new XWA_Multiplayer_Connector.Controls.ColourableListBox();
             this.textBoxLog = new System.Windows.Forms.TextBox();
@@ -88,7 +87,7 @@
             // 
             this.splitContainerTop.Panel2.Controls.Add(this.splitContainerTopRight);
             this.splitContainerTop.Size = new System.Drawing.Size(800, 266);
-            this.splitContainerTop.SplitterDistance = 363;
+            this.splitContainerTop.SplitterDistance = 357;
             this.splitContainerTop.SplitterWidth = 10;
             this.splitContainerTop.TabIndex = 0;
             // 
@@ -98,7 +97,7 @@
             this.listBoxMissionSelection.FormattingEnabled = true;
             this.listBoxMissionSelection.Location = new System.Drawing.Point(0, 0);
             this.listBoxMissionSelection.Name = "listBoxMissionSelection";
-            this.listBoxMissionSelection.Size = new System.Drawing.Size(363, 266);
+            this.listBoxMissionSelection.Size = new System.Drawing.Size(357, 266);
             this.listBoxMissionSelection.TabIndex = 0;
             this.listBoxMissionSelection.SelectedIndexChanged += new System.EventHandler(this.ListBoxMissionSelection_SelectedIndexChanged);
             // 
@@ -111,14 +110,13 @@
             // splitContainerTopRight.Panel1
             // 
             this.splitContainerTopRight.Panel1.Controls.Add(this.buttonSendTempTie);
-            this.splitContainerTopRight.Panel1.Controls.Add(this.buttonPrepHostFile);
             this.splitContainerTopRight.Panel1.Controls.Add(this.textBoxMissionInfo);
             // 
             // splitContainerTopRight.Panel2
             // 
             this.splitContainerTopRight.Panel2.Controls.Add(this.colourableListBoxClients);
-            this.splitContainerTopRight.Size = new System.Drawing.Size(427, 266);
-            this.splitContainerTopRight.SplitterDistance = 202;
+            this.splitContainerTopRight.Size = new System.Drawing.Size(433, 266);
+            this.splitContainerTopRight.SplitterDistance = 204;
             this.splitContainerTopRight.SplitterWidth = 10;
             this.splitContainerTopRight.TabIndex = 0;
             // 
@@ -128,23 +126,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSendTempTie.Location = new System.Drawing.Point(3, 231);
             this.buttonSendTempTie.Name = "buttonSendTempTie";
-            this.buttonSendTempTie.Size = new System.Drawing.Size(196, 32);
+            this.buttonSendTempTie.Size = new System.Drawing.Size(198, 32);
             this.buttonSendTempTie.TabIndex = 3;
             this.buttonSendTempTie.Text = "Send out \"temp.tie\"";
             this.buttonSendTempTie.UseVisualStyleBackColor = true;
             this.buttonSendTempTie.Click += new System.EventHandler(this.ButtonSendTempTie_Click);
-            // 
-            // buttonPrepHostFile
-            // 
-            this.buttonPrepHostFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrepHostFile.Location = new System.Drawing.Point(3, 193);
-            this.buttonPrepHostFile.Name = "buttonPrepHostFile";
-            this.buttonPrepHostFile.Size = new System.Drawing.Size(196, 32);
-            this.buttonPrepHostFile.TabIndex = 2;
-            this.buttonPrepHostFile.Text = "Prep Host File";
-            this.buttonPrepHostFile.UseVisualStyleBackColor = true;
-            this.buttonPrepHostFile.Click += new System.EventHandler(this.ButtonPrepHostFile_Click);
             // 
             // textBoxMissionInfo
             // 
@@ -155,7 +141,7 @@
             this.textBoxMissionInfo.Multiline = true;
             this.textBoxMissionInfo.Name = "textBoxMissionInfo";
             this.textBoxMissionInfo.ReadOnly = true;
-            this.textBoxMissionInfo.Size = new System.Drawing.Size(196, 187);
+            this.textBoxMissionInfo.Size = new System.Drawing.Size(198, 225);
             this.textBoxMissionInfo.TabIndex = 1;
             // 
             // colourableListBoxClients
@@ -166,7 +152,7 @@
             this.colourableListBoxClients.FormattingEnabled = true;
             this.colourableListBoxClients.Location = new System.Drawing.Point(0, 0);
             this.colourableListBoxClients.Name = "colourableListBoxClients";
-            this.colourableListBoxClients.Size = new System.Drawing.Size(215, 266);
+            this.colourableListBoxClients.Size = new System.Drawing.Size(219, 266);
             this.colourableListBoxClients.TabIndex = 0;
             // 
             // textBoxLog
@@ -221,7 +207,6 @@
         private System.Windows.Forms.TextBox textBoxMissionInfo;
         private System.Windows.Forms.TextBox textBoxLog;
         private System.Windows.Forms.Button buttonSendTempTie;
-        private System.Windows.Forms.Button buttonPrepHostFile;
         private System.Windows.Forms.ListBox listBoxMissionSelection;
         private Controls.ColourableListBox colourableListBoxClients;
         private System.Windows.Forms.Timer timerBeat;

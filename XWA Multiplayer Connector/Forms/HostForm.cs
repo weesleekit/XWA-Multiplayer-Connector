@@ -38,11 +38,6 @@ namespace XWA_Multiplayer_Connector.Forms
 
         private Mission selectedMission = null;
 
-        /// <summary>
-        /// If this is not null then it is the name of the mission file that has been copied in
-        /// </summary>
-        private string cleanupFilePath = null;
-
         private LogLevel? logLevelVisible = null;
 
         //Properties
@@ -58,7 +53,6 @@ namespace XWA_Multiplayer_Connector.Forms
                 if (value == null)
                 {
                     textBoxMissionInfo.Text = "";
-                    buttonPrepHostFile.Enabled = false;
                     buttonSendTempTie.Enabled = false;
                 }
                 else
@@ -70,7 +64,6 @@ namespace XWA_Multiplayer_Connector.Forms
                                               Environment.NewLine +
                                               Environment.NewLine +
                                               $"Players: {Environment.NewLine} {value.PlayerNumber}";
-                    buttonPrepHostFile.Enabled = true;
                     buttonSendTempTie.Enabled = true;
                 }
 
@@ -90,6 +83,15 @@ namespace XWA_Multiplayer_Connector.Forms
 
             //Add the missions to the UI
             listBoxMissionSelection.Items.AddRange(missions.ToArray());
+
+            //Copy the mission files into the skirmish folder
+            foreach (Mission mission in missions)
+            {
+                if (!mission.PrepHostFile(config.ExePath, out string destination, out string feedback))
+                {
+                    LogMessage($"Failure, mission {mission.FileName}, {mission.BattleName}, {mission.MissionName} did not copy in {feedback}");
+                }
+            }
 
             //Get the configuration of the server
             if (string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["AppIdentifier"]))
@@ -284,36 +286,8 @@ namespace XWA_Multiplayer_Connector.Forms
             //Shut down the server gracefully
             lidgrenServer.ShutDown("User closed server");
 
-            //Clean up the mission file
-            CleanupMissionFile();
-
             //Show the parent form
             Owner.Show();
-        }
-
-        /// <summary>
-        /// The user wants to prepare the host PC for the mission
-        /// </summary>
-        private void ButtonPrepHostFile_Click(object sender, EventArgs e)
-        {
-            if (SelectedMission == null)
-            {
-                LogMessage($"Select a mission first!");
-                return;
-            }
-
-            CleanupMissionFile();
-
-            if (SelectedMission.PrepHostFile(config.ExePath, out string destination, out string feedback))
-            {
-                cleanupFilePath = destination;
-
-                LogMessage($"Success, mission ready to load");
-            }
-            else
-            {
-                LogMessage($"Failure, mission did not load. {feedback}");
-            }
         }
 
         /// <summary>
@@ -443,28 +417,6 @@ namespace XWA_Multiplayer_Connector.Forms
             textBoxLog.AppendText(" ");
             textBoxLog.AppendText(message);
             textBoxLog.AppendText(Environment.NewLine);
-        }
-
-        private void CleanupMissionFile()
-        {
-            //If there is a file to cleanup
-            if (cleanupFilePath != null)
-            {
-                try
-                {
-                    //Delete the file
-                    File.Delete(cleanupFilePath);
-                }
-                catch (Exception ex)
-                {
-                    LogMessage($"Error deleting old mission file, file path: {cleanupFilePath} - Error: {ex.Message}");
-                }
-                finally
-                {
-                    //Set the cleanup path to null
-                    cleanupFilePath = null;
-                }
-            }
         }
 
         /// <summary>

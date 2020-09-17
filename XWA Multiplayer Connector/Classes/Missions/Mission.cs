@@ -117,8 +117,8 @@ namespace XWA_Multiplayer_Connector.Classes.Missions
             FileInfo missionFileInfo = new FileInfo(exePath);
             
             //Determine the destination
-            destination = missionFileInfo.DirectoryName + skirmishFolderSubPath + BattleName + " - " + MissionName + ".skm" ;
-
+            destination = missionFileInfo.DirectoryName + skirmishFolderSubPath + $"_{string.Format("{0:D2}", (int)Battle)} {BattleName} - {string.Format("{0:D2}", MissionNumber)} {MissionName}.skm";
+            
             //Determine the source
             string source = missionFilePathWithoutExtension + ".skm";
 
