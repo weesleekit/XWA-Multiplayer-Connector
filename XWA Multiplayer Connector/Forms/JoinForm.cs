@@ -33,10 +33,17 @@ namespace XWA_Multiplayer_Connector.Forms
 
         private LogLevel? logLevelVisible = null;
 
+        //Events
+
+        public event lidgrenEventHandler SendNameReply;
+
         //Constructor
 
         public JoinForm(List<Mission> missions, Config config)
         {
+            //Setting up events
+            SendNameReply += new lidgrenEventHandler(SendNameReplyHandler);
+
             //Standard setup
             InitializeComponent();
 
@@ -151,7 +158,7 @@ namespace XWA_Multiplayer_Connector.Forms
                 switch (messageType)
                 {
                     case ClientMessageType.SendName:
-                        SendName(feedback, jsonBody);
+                        SendNameReply?.Invoke(feedback, jsonBody);
                         break;
 
                     default:
@@ -204,15 +211,8 @@ namespace XWA_Multiplayer_Connector.Forms
         /// <summary>
         /// The server has replied to the client after recieving the name
         /// </summary>
-        private void SendName(int feedback, string jsonBody)
+        private void SendNameReplyHandler(int feedback, string jsonBody)
         {
-            //Just getting rid of the Message check. We don't use the body but it's nice to standardise the parameters.
-            //I think in time, they should be moved to a standard type of event where feedback and body are included in every even if not used.
-            if (jsonBody == null)
-            {
-
-            }
-
             //Just a silly example handler for dealing with server reply messages
             switch ((Classes.Networking.Payloads.Client.SendName.Feedback)feedback)
             {

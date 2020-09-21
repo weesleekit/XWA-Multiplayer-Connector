@@ -3,8 +3,12 @@ using XWA_Multiplayer_Connector.Interfaces;
 
 namespace XWA_Multiplayer_Connector.Classes.Networking
 {
-    abstract class LidgrenObject
+    public abstract class LidgrenObject
     {
+        //Delegate
+
+        public delegate void lidgrenEventHandler(int feedback, string jsonBody);
+
         //Enum
 
         /// <summary>

@@ -86,7 +86,7 @@ namespace XWA_Multiplayer_Connector.Forms
             //Copy the mission files into the skirmish folder
             foreach (Mission mission in missions)
             {
-                if (!mission.PrepHostFile(config.ExePath, out string destination, out string feedback))
+                if (!mission.PrepHostFile(config.ExePath, out _, out string feedback))
                 {
                     LogMessage($"Failure, mission {mission.FileName}, {mission.BattleName}, {mission.MissionName} did not copy in {feedback}");
                 }

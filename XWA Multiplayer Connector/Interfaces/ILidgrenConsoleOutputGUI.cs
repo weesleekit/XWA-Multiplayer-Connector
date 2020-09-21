@@ -2,7 +2,7 @@
 
 namespace XWA_Multiplayer_Connector.Interfaces
 {
-    interface ILidgrenConsoleOutputGUI
+    public interface ILidgrenConsoleOutputGUI
     {
         /// <summary>
         /// Outputs to the console
