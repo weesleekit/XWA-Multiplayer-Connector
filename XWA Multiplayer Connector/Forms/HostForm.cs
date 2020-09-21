@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using XWA_Multiplayer_Connector.Classes.Missions;
 using XWA_Multiplayer_Connector.Classes.Models;
 using XWA_Multiplayer_Connector.Classes.Networking;
-using XWA_Multiplayer_Connector.Classes.Networking.Payloads.Server.New;
 using XWA_Multiplayer_Connector.Interfaces;
 using static XWA_Multiplayer_Connector.Classes.Networking.LidgrenObject;
 using static XWA_Multiplayer_Connector.Classes.Networking.Payloads.Client.ClientMessageTypes;
@@ -321,7 +320,7 @@ namespace XWA_Multiplayer_Connector.Forms
             LogMessage("Successfully loaded mission on local machine");
 
             //Create an outgoing payload
-            var payloadModel = new PrepMission
+            var payloadModel = new Classes.Networking.Payloads.Server.PrepMission.OriginPayload
             {
                 MissionFileName = selectedMission.FileName,
             };
@@ -359,16 +358,16 @@ namespace XWA_Multiplayer_Connector.Forms
 
             }
 
-            switch((PrepMission.Feedback)feedback)
+            switch((Classes.Networking.Payloads.Server.PrepMission.Feedback)feedback)
             {
-                case Classes.Networking.Payloads.Server.New.PrepMission.Feedback.Success:
+                case Classes.Networking.Payloads.Server.PrepMission.Feedback.Success:
 
                     //Set the player in the listbox to green
                     colourableListBoxClients.ChangeItemColour(clientPlayer, loadedSuccess);
 
                     break;
 
-                case Classes.Networking.Payloads.Server.New.PrepMission.Feedback.Failure:
+                case Classes.Networking.Payloads.Server.PrepMission.Feedback.Failure:
                     
                     //Set the player in the listbox to red
                     colourableListBoxClients.ChangeItemColour(clientPlayer, loadedFailure);
@@ -390,7 +389,7 @@ namespace XWA_Multiplayer_Connector.Forms
         private void SendName(ClientPlayer clientPlayer, string jsonBody)
         {
             //Deserialise the incoming payload
-            var incomingPayload = JsonConvert.DeserializeObject<Classes.Networking.Payloads.Client.New.SendName>(jsonBody);
+            var incomingPayload = JsonConvert.DeserializeObject<Classes.Networking.Payloads.Client.SendName.OriginPayload>(jsonBody);
 
             //Update the player with the new name
             clientPlayer.Name = incomingPayload.ClientPlayerName;
@@ -399,7 +398,7 @@ namespace XWA_Multiplayer_Connector.Forms
             colourableListBoxClients.Refresh();
 
             //Reply to the client just for fun
-            SendReplyMessage(clientPlayer.netConnection, ClientMessageType.SendName, (int)Classes.Networking.Payloads.Client.New.SendName.Feedback.ThatsACoolNameBro);
+            SendReplyMessage(clientPlayer.netConnection, ClientMessageType.SendName, (int)Classes.Networking.Payloads.Client.SendName.Feedback.ThatsACoolNameBro);
         }
 
         //Private Methods

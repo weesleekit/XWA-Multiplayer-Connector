@@ -62,10 +62,10 @@
     <Compile Include="Classes\Networking\LidgrenClient.cs" />
     <Compile Include="Classes\Networking\LidgrenObject.cs" />
     <Compile Include="Classes\Networking\LidgrenServer.cs" />
-    <Compile Include="Classes\Networking\Payloads\Client\ClientMessageTypes.cs" />
-    <Compile Include="Classes\Networking\Payloads\Client\New\SendName.cs" />
-    <Compile Include="Classes\Networking\Payloads\Server\ServerMessageTypes.cs" />
-    <Compile Include="Classes\Networking\Payloads\Server\New\PrepMission.cs" />
+    <Compile Include="Classes\Networking\Payloads\Client\_ClientMessageTypes.cs" />
+    <Compile Include="Classes\Networking\Payloads\Client\SendName.cs" />
+    <Compile Include="Classes\Networking\Payloads\Server\_ServerMessageTypes.cs" />
+    <Compile Include="Classes\Networking\Payloads\Server\PrepMission.cs" />
     <Compile Include="Controls\ColourableListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -394,9 +394,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\Networking\Payloads\Client\Reply\" />
-    <Folder Include="Classes\Networking\Payloads\Server\Reply\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

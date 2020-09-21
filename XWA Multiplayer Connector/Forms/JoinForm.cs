@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using XWA_Multiplayer_Connector.Classes.Missions;
 using XWA_Multiplayer_Connector.Classes.Models;
 using XWA_Multiplayer_Connector.Classes.Networking;
-using XWA_Multiplayer_Connector.Classes.Networking.Payloads.Client.New;
 using XWA_Multiplayer_Connector.Interfaces;
 using static XWA_Multiplayer_Connector.Classes.Networking.LidgrenObject;
 using static XWA_Multiplayer_Connector.Classes.Networking.Payloads.Client.ClientMessageTypes;
@@ -99,7 +98,7 @@ namespace XWA_Multiplayer_Connector.Forms
             //Send the player name to the server
 
             //Create an outgoing payload
-            var payloadModel = new SendName
+            var payloadModel = new Classes.Networking.Payloads.Client.SendName.OriginPayload
             {
                 ClientPlayerName = config.PlayerName,
             };
@@ -215,9 +214,9 @@ namespace XWA_Multiplayer_Connector.Forms
             }
 
             //Just a silly example handler for dealing with server reply messages
-            switch ((SendName.Feedback)feedback)
+            switch ((Classes.Networking.Payloads.Client.SendName.Feedback)feedback)
             {
-                case Classes.Networking.Payloads.Client.New.SendName.Feedback.ThatsACoolNameBro:
+                case Classes.Networking.Payloads.Client.SendName.Feedback.ThatsACoolNameBro:
                     LogMessage("Server likes your name");
                     break;
 
@@ -234,7 +233,7 @@ namespace XWA_Multiplayer_Connector.Forms
         private void PrepMission(string jsonBody)
         {
             //Deserialise the incoming payload
-            var incomingPayload = JsonConvert.DeserializeObject<Classes.Networking.Payloads.Server.New.PrepMission>(jsonBody);
+            var incomingPayload = JsonConvert.DeserializeObject<Classes.Networking.Payloads.Server.PrepMission.OriginPayload>(jsonBody);
 
             //Try and find the mission
             Mission mission = missions.Find(x => x.FileName == incomingPayload.MissionFileName);
@@ -246,7 +245,7 @@ namespace XWA_Multiplayer_Connector.Forms
                 LogMessage($"Failed to prepare mission {incomingPayload.MissionFileName} Could not find mission");
 
                 //Reply failure to server
-                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.New.PrepMission.Feedback.Failure);
+                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.PrepMission.Feedback.Failure);
             }
 
             //Try to copy in the file
@@ -256,7 +255,7 @@ namespace XWA_Multiplayer_Connector.Forms
                 LogMessage($"Successfully prepared mission {mission.BattleName} - {mission.MissionName}");
 
                 //Reply success to server
-                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.New.PrepMission.Feedback.Success);
+                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.PrepMission.Feedback.Success);
             }
             else
             {
@@ -264,7 +263,7 @@ namespace XWA_Multiplayer_Connector.Forms
                 LogMessage($"Failed to prepare mission {mission.BattleName} - {mission.MissionName}. Feedback: {feedback}");
 
                 //Reply failure to server
-                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.New.PrepMission.Feedback.Failure);
+                SendReplyMessage(ServerMessageType.PrepMission, (int)Classes.Networking.Payloads.Server.PrepMission.Feedback.Failure);
             }
         }
 
